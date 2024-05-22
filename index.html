@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Developer is Not paid!</title>
+  <title>Website Access Restricted!</title>
   <style>
     /* Basic styles */
     body {
@@ -14,7 +14,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background-color: #25d4ae;
+      background-color: #f0f0f0;
     }
     
     /* Hero section styles */
@@ -25,6 +25,7 @@
     .hero h1 {
       font-size: 4em;
       margin-bottom: 0;
+      color: #f00;
     }
     
     .hero p {
@@ -35,7 +36,7 @@
     /* Wrench icon styles */
     .wrench {
       font-size: 10em;
-      color: #333;
+      color: #f00;
       animation: spin 2s linear infinite;
     }
     
@@ -43,12 +44,52 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    
+    /* Countdown styles */
+    #countdown {
+      font-size: 2em;
+      font-weight: bold;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
   <div class="hero">
-    <h1>OOPS! ITS DOWN</h1>
-    <p>Terms and conditions Violated</p>
-    <i class="fas fa-wrench wrench"></i> </div>
+    <h1>Website Access Restricted!</h1>
+    <p>Terms and Conditions Violated. Access restored in:</p>
+    <i class="fas fa-wrench wrench"></i>
+    <p id="countdown"></p>
+  </div>
+  <script>
+    // Function to update the countdown timer
+    function updateCountdown() {
+      // Get the current date and time
+      const now = new Date();
+  
+      // Set the target access restore date and time (three days from now)
+      const targetAccessRestore = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000);
+  
+      // Calculate the remaining time in milliseconds
+      const remainingTime = targetAccessRestore - now;
+  
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+  
+      // Format the countdown string
+      const countdownString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  
+      // Update the countdown element in the HTML
+      document.getElementById("countdown").innerHTML = countdownString;
+  
+      // Call the updateCountdown function again every second
+      setTimeout(updateCountdown, 1000);
+    }
+  
+    // Start the countdown
+    updateCountdown();
+  </script>
 </body>
 </html>
