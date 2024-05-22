@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Access Restricted!</title>
+  <title>Domain Resale Notice!</title>
   <style>
     /* Basic styles */
     body {
@@ -55,10 +55,11 @@
 </head>
 <body>
   <div class="hero">
-    <h1>Website Access Restricted!</h1>
-    <p>Terms and Conditions Violated. Access restored in:</p>
+    <h1>Domain Resale Notice!</h1>
+    <p>This domain will be available for resale in:</p>
     <i class="fas fa-wrench wrench"></i>
     <p id="countdown"></p>
+    </message>
   </div>
   <script>
     // Function to update the countdown timer
@@ -66,11 +67,11 @@
       // Get the current date and time
       const now = new Date();
   
-      // Set the target access restore date and time (three days from now)
-      const targetAccessRestore = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000);
+      // Set the target resale date and time (three days from now)
+      const targetResale = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000);
   
       // Calculate the remaining time in milliseconds
-      const remainingTime = targetAccessRestore - now;
+      const remainingTime = targetResale - now;
   
       // Calculate days, hours, minutes, and seconds
       const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
