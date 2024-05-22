@@ -59,7 +59,6 @@
     <p>This domain will be available for resale in:</p>
     <i class="fas fa-wrench wrench"></i>
     <p id="countdown"></p>
-    </message>
   </div>
   <script>
     // Function to update the countdown timer
@@ -70,11 +69,20 @@
       // Set the target resale date and time (three days from now)
       const targetResale = new Date(now.getTime() + 3 * 24 * 60 * 60 * 1000);
   
-      // Calculate the remaining time in seconds
-      const remainingTime = Math.floor((targetResale - now) / 1000);
+      // Calculate the remaining time in milliseconds
+      const remainingTime = targetResale - now;
+  
+      // Calculate days, hours, minutes, and seconds
+      const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+  
+      // Format the countdown string
+      const countdownString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
   
       // Update the countdown element in the HTML
-      document.getElementById("countdown").innerHTML = `${remainingTime}s`;
+      document.getElementById("countdown").innerHTML = countdownString;
   
       // Call the updateCountdown function again every second
       setTimeout(updateCountdown, 1000);
